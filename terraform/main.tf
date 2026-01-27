@@ -5,13 +5,6 @@ terraform {
       version = "3.0.2-rc01"
     }
   }
-    backend "local" {
-    path = "./terraform.tfstate"
-
-    workspaces {
-      name = "local-proxmox"
-    }
-  }
 }
 
 provider "proxmox" {
