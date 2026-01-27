@@ -24,19 +24,19 @@ variable proxmox_api_token {
       bridge      = string
       network_tag = number
     }))
-    # default = {
-    #   "master-node1" = {
-    #     vm_id       = 3000
-    #     target_node = "pve1"
-    #     name        = "test"
-    #     memory      = 4096
-    #     vm_state    = "stopped"
-    #     onboot      = false
-    #     startup     = "order=1"
-    #     ipconfig    = "ip=192.168.4.100/24,gw=192.168.4.1"
-    #     cores       = 2
-    #     bridge      = "vmbr0"
-    #     network_tag = 0
-    #   },
-    # }
+    default = {
+      "master-node1" = {
+        vm_id       = 3000
+        target_node = "pve1"
+        name        = "test"
+        memory      = 4096
+        vm_state    = "stopped"
+        onboot      = false
+        startup     = "order=1"
+        ipconfig    = "ip=192.168.4.100/24,gw=192.168.4.1"
+        cores       = 2
+        bridge      = "vmbr0"
+        network_tag = 0
+      },
+    }
   }
