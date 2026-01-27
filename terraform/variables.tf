@@ -26,7 +26,7 @@ variable proxmox_api_token {
     }))
     default = {
       "master-node1" = {
-        vm_id       = 2000
+        vm_id       = 3000
         target_node = "pve1"
         name        = "test"
         memory      = 4096
