@@ -16,7 +16,6 @@ jobs:
   plan:
     name: 'Terraform Plan'    
     runs-on: self-hosted
-    environment: local-proxmox
     defaults:
       run:
         working-directory: ./terraform
