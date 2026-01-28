@@ -1,9 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "terraform"
-    endpoints = {
-      s3 = "https://s3.hbojda.ovh"
-    }
+    endpoints = "https://s3.hbojda.ovh"
     key = "terraform.tfstate"
 
     region                      = "main"
