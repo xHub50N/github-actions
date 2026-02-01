@@ -28,10 +28,10 @@ variable "vm_configs" {
     network_tag = number
   }))
   default = {
-    "master-node1" = {
+    "n8n" = {
       vm_id       = 3000
       target_node = "pve1"
-      name        = "test"
+      name        = "n8n"
       memory      = 4096
       vm_state    = "stopped"
       onboot      = false
