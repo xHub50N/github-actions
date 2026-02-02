@@ -67,5 +67,18 @@ variable "vm_configs" {
       bridge      = "vmbr0"
       network_tag = 0
     },
+    "ansible-worker" = {
+      vm_id       = 4002
+      target_node = "pve1"
+      name        = "ansible-worker"
+      memory      = 2048
+      vm_state    = "stopped"
+      onboot      = false
+      startup     = "order=1"
+      ipconfig    = "ip=192.168.4.103/24,gw=192.168.4.1"
+      cores       = 2
+      bridge      = "vmbr0"
+      network_tag = 0
+    },
   }
 }
