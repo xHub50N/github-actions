@@ -1,0 +1,21 @@
+---
+k3s:
+  children:
+    master:
+      hosts:
+        192.168.4.101:
+    worker:
+      hosts:
+        192.168.4.102:
+  vars:
+    ansible_user: user
+    ansible_ssh_private_key_file: ~/.ssh/id_ed25519
+    ansible_ssh_common_args: -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
+
+localhost:
+  hosts:
+    localhost:
+  vars:
+    ansible_user: user
+    ansible_ssh_private_key_file: ~/.ssh/id_ed25519
+    ansible_ssh_common_args: -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null

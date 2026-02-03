@@ -70,7 +70,7 @@ variable "vm_configs" {
     "ansible-worker" = {
       vm_id       = 4002
       target_node = "pve1"
-      name        = "ansible-worker"
+      name        = "worker-station"
       memory      = 2048
       vm_state    = "stopped"
       onboot      = false

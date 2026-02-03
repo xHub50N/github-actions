@@ -1,0 +1,43 @@
+- name: Update hosts and download k3sup
+  hosts: localhost
+  become: true
+  tasks:
+  - name: Update all packages to their latest version
+    shell: apt update && apt upgrade -y
+
+  - name: Download k3sup
+    shell: curl -sLS https://get.k3sup.dev | sh
+
+- name: Install k3s server on master node
+  hosts: localhost
+  become: true
+  become_user: user
+  vars:
+    k3sup_bin: /usr/local/bin/k3sup
+    master_ip: "{{ groups['master'][0] }}"
+  tasks:
+    - name: Install k3s server using k3sup
+      shell: |
+        {{ k3sup_bin }} install \
+          --host {{ master_ip }} \
+          --ssh-key {{ ansible_ssh_private_key_file }} \
+          --user {{ ansible_user }} \
+          --context k3s-cluster \ 
+          --k3s-extra-args '--disable traefik'
+  
+- name: Install k3s agents on worker nodes
+  hosts: localhost
+  become: true
+  become_user: user
+  vars:
+    k3sup_bin: /usr/local/bin/k3sup
+    master_ip: "{{ groups['master'][0] }}"
+    worker_ip: "{{ groups['worker'][0] }}"
+  tasks:
+    - name: Install k3s server using k3sup
+      shell: |
+        {{ k3sup_bin }} join \
+          --host {{ worker_ip }} \
+          --user {{ ansible_user }} \ 
+          --server-ip {{ master_ip }} \
+          --ssh-key {{ ansible_ssh_private_key_file }}
