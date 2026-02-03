@@ -41,10 +41,10 @@ variable "vm_configs" {
       bridge      = "vmbr0"
       network_tag = 0
     },
-    "k3s-master" = {
+    "k3s-master-test" = {
       vm_id       = 4000
       target_node = "pve1"
-      name        = "k3s-master"
+      name        = "k3s-master-test"
       memory      = 4096
       vm_state    = "stopped"
       onboot      = false
@@ -54,10 +54,10 @@ variable "vm_configs" {
       bridge      = "vmbr0"
       network_tag = 0
     },
-    "k3s-worker" = {
+    "k3s-worker-test" = {
       vm_id       = 4001
       target_node = "pve1"
-      name        = "k3s-worker"
+      name        = "k3s-worker-test"
       memory      = 4096
       vm_state    = "stopped"
       onboot      = false
@@ -67,10 +67,10 @@ variable "vm_configs" {
       bridge      = "vmbr0"
       network_tag = 0
     },
-    "ansible-worker" = {
+    "ansible-worker-test" = {
       vm_id       = 4002
       target_node = "pve1"
-      name        = "worker-station"
+      name        = "ansible-worker-test"
       memory      = 2048
       vm_state    = "stopped"
       onboot      = false
