@@ -76,8 +76,8 @@ jobs:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "./scripts/install-ansible-ubuntu.sh"
-          target: "/tmp/"
+          source: "scripts/install-ansible-ubuntu.sh"
+          target: "/tmp"
           strip_components: 1                
 
       - name: Execute script on remote VM
