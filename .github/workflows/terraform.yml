@@ -77,7 +77,8 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "./scripts/install-ansible-ubuntu.sh"
-          target: "/tmp/"                
+          target: "/tmp/"
+          strip_components: 1                
 
       - name: Execute script on remote VM
         uses: appleboy/ssh-action@v1.0.3
