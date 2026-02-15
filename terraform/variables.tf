@@ -80,5 +80,18 @@ variable "vm_configs" {
       bridge      = "vmbr0"
       network_tag = 0
     },
+    "plane" = {
+      vm_id       = 4003
+      target_node = "pve1"
+      name        = "plane"
+      memory      = 4096
+      vm_state    = "stopped"
+      onboot      = false
+      startup     = "order=1"
+      ipconfig    = "ip=192.168.4.104/24,gw=192.168.4.1"
+      cores       = 2
+      bridge      = "vmbr0"
+      network_tag = 0
+    },
   }
 }
